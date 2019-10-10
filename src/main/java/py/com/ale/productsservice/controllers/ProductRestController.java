@@ -36,7 +36,7 @@ public class ProductRestController {
     }
 
     @GetMapping("ver/{id}")
-    public Product detalle(@PathVariable Long id) {
+    public Product detalle(@PathVariable Long id) throws Exception {
         Product product = productService.findById(id);
         product.setPort(port);
         return product;
