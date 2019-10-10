@@ -2,14 +2,7 @@ package py.com.ale.productsservice.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
@@ -23,6 +16,9 @@ public class Product implements Serializable {
   @Column(name = "create_at")
   @Temporal(TemporalType.DATE)
   private Date createdAt;
+
+  @Transient
+  private Integer port;
 
   public Long getId() {
     return id;
@@ -54,5 +50,13 @@ public class Product implements Serializable {
 
   public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
   }
 }
